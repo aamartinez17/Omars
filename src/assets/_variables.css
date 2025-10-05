@@ -1,0 +1,20 @@
+/* Using :root makes these variables available globally in your entire project. */
+:root {
+  /* COLOR PALETTE */
+  --color-primary: #EFB300; /* Solid Gold for highlights, buttons */
+  --color-primary-transparent: rgba(239, 179, 0, 0.75); /* Your original transparent gold */
+  --color-background: #000000; /* Black */
+  --color-background-secondary: #1a1a1a; /* Dark Gray for cards, sections */
+  --color-text-light: #f5f5f5; /* Off-white for primary text */
+  --color-text-dark: #2c2c2c; /* Very dark gray for text on light backgrounds */
+  
+  /* FONTS */
+  --font-family-headings: 'Playfair Display', serif; /* A classic, elegant serif for titles */
+  --font-family-body: 'Montserrat', sans-serif; /* A clean, modern sans-serif for body text */
+
+  /* SPACING */
+  --spacing-unit: 8px; /* Base unit for margins and padding */
+
+  /* BORDERS */
+  --border-radius: 4px; /* Standard border radius for buttons and cards */
+}
