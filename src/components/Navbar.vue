@@ -39,11 +39,11 @@
 
         <div class="d-flex align-items-center">
             <div class="social-icons">
-                <a href="https://www.facebook.com/" target="_blank" class="text-light mx-2"><i class="bi bi-facebook"></i></a>
-                <a href="https://www.instagram.com/" target="_blank" class="text-light mx-2"><i class="bi bi-instagram"></i></a>
-                <a href="https://www.tiktok.com/" target="_blank" class="text-light mx-2"><i class="bi bi-tiktok"></i></a>
+                <a href="https://www.facebook.com/Omarshairsalonbarbershop" target="_blank" class="text-light mx-2"><i class="bi bi-facebook"></i></a>
+                <a href="https://www.instagram.com/Omars.barbershop/" target="_blank" class="text-light mx-2"><i class="bi bi-instagram"></i></a>
+                <a href="https://www.tiktok.com/@omars.barbershop" target="_blank" class="text-light mx-2"><i class="bi bi-tiktok"></i></a>
             </div>
-            <a href="#" class="btn btn-primary ms-lg-3">Make an Appointment</a>
+            <a href="https://www.mytime.com/express_checkout/23287/21106?fbclid=IwAR1k6qxD1716w-cibtf70tgYNM7OHdYBb9seRo7sYkMzU-qHT1IPXRI7zBU&mobility=1&employeeGender=all" target="_blank" class="btn btn-primary ms-lg-3">Make an Appointment</a>
         </div>
       </div>
     </div>

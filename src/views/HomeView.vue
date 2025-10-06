@@ -2,91 +2,9 @@
 import { ref } from 'vue';
 import RatesCard from '../components/RatesCard.vue';
 import RatingsCarousel from '../components/RatingsCarousel.vue';
+import { servicesData } from '../assets/data/services.js';
 
-// --- UPDATED Service Data ---
-const services = ref([
-  {
-    name: 'Haircut Services',
-    image: '/images/service-haircut.png',
-    subServices: [
-      {
-        name: 'Haircut',
-        description: 'Our experienced barbers take into account your unique hair texture, face shape, and personal preferences to create a look that complements your individual style. This service is characterized by its textured top, allowing for a range of styling options from casual and laid-back to effortlessly sophisticated. Our services include a complimentary wash and professional styling to leave you looking and feeling your best.',
-        rate: '$33.00',
-      },
-      {
-        name: 'Skin Fade',
-        description: 'Our barber’s attention to detail and expertise in blending create a gradual transition from short hair at the nape of the neck and sides to longer hair on the top. The fade is achieved by blending or tapering the hair length down to the skin, creating a seamless and clean look. Our services include a complimentary wash and professional styling to leave you looking and feeling your best.',
-        rate: '$38.00',
-      },
-      {
-        name: "Children's Haircut",
-        description: 'Our experienced barbers understand the unique needs of our youngest clients, ensuring a positive and enjoyable grooming experience. Designed for children 9 years of age and under, this service creates a playful and easy-to-manage style that suits various hair textures. Our services include a complimentary wash and professional styling to leave you looking and feeling your best.',
-        rate: '$28.00',
-      },
-      {
-        name: "Children's Skin Fades",
-        description: 'Our experienced barbers understand the unique needs of our youngest clients, ensuring a positive and enjoyable grooming experience. Designed for children 9 years of age and under, this cut offers a playful blend of short sides and a well-defined top, creating a stylish contrast that mirrors the popular skin fade trend. This haircut is not just about looks; it’s designed for active kids, offering both a cool aesthetic and easy maintenance. Our services include a complimentary wash and professional styling to leave you looking and feeling your best.',
-        rate: '$33.00',
-      },
-      {
-        name: 'Clean Up',
-        description: 'Transform your hairstyle into a work of art with our exclusive hair design service. Our skilled barbers are passionate about crafting unique and personalized designs that reflect your style and personality. Whether you’re looking for intricate patterns, fades, or custom designs, our expert team is dedicated to delivering a cutting-edge look that sets you apart.',
-        rate: ' Starts at* $23.00',
-      },
-    ],
-  },
-  {
-    name: 'Hot Shave',
-    image: '/images/service-shave.png',
-    subServices: [
-      {
-        name: 'Beard Trim',
-        description: 'Refine your signature style with our precision beard trim service. Our skilled barbers understand the artistry of facial grooming, ensuring that your beard is expertly shaped, trimmed, and sculpted to perfection. Whether you prefer a sharp, well-defined look or a more natural, rugged charm, our barbers are here to tailor the trim to your unique preferences.',
-        rate: '$23.00',
-      },
-      {
-        name: 'Hot Shave',
-        description: 'Indulge in the timeless luxury of our hot shave experience. Our skilled barbers bring the art of grooming to new heights with a meticulous hot shave that goes beyond the ordinary. Relax in the comfort of a warm, aromatic towel as we prepare your skin for the closest, smoothest shave possible. Our expert technique and premium products ensure a rejuvenating experience, leaving your skin silky-smooth and refreshed.',
-        rate: '$28.00',
-      },
-    ],
-  },
-  {
-    name: 'Threading',
-    image: '/images/service-threading.png',
-    subServices: [
-      {
-        name: 'Eyebrow Threading',
-        description: 'Our experienced barbers use threading to create clean lines and well-defined shapes to sculpt your eyebrows and shape your facial hair with meticulous detail, ensuring your facial features stand out. Threading is known for its efficiency in removing even the finest hairs, providing a longer-lasting and cleaner result than other methods.',
-        rate: '$23.00',
-      },
-    ],
-  },
-  {
-    name: 'Waxing',
-    image: '/images/service-waxing.png',
-    subServices: [
-      {
-        name: 'Eyebrow Waxing', // Corrected name for clarity
-        description: 'Our skilled team combines precision and comfort to provide a tailored facial waxing experience. Say goodbye to unwanted facial hair as we delicately sculpt and shape your brows, mustache, or beard edges. Our barbers understand the artistry of facial grooming, ensuring a clean and polished finish that complements your features.',
-        rate: '$23.00',
-      },
-    ],
-  },
-  {
-    name: 'Facial',
-    image: '/images/service-facial.png',
-    subServices: [
-      {
-        name: 'Facial', // Corrected name for clarity
-        description: 'Indulge in the ultimate grooming experience with our rejuvenating facial service. Our skilled barbers go beyond the traditional shave, offering a tailored facial treatment designed to invigorate and refresh your skin. Enjoy the luxury of a deep cleanse, exfoliation, and a soothing mask, all personalized to address your unique skin needs.',
-        rate: '$53.00',
-      },
-    ],
-  },
-]);
-
+const services = ref(servicesData);
 const selectedService = ref(services.value[0]);
 
 const selectService = (service) => {
@@ -117,7 +35,7 @@ const ratings = ref([
         alt="Omar's Hair Salon & Barbershop Logo"
         class="hero-logo"
       />
-      <a href="#" class="btn btn-hero">Make an Appointment</a>
+      <a href="https://www.mytime.com/express_checkout/23287/21106?fbclid=IwAR1k6qxD1716w-cibtf70tgYNM7OHdYBb9seRo7sYkMzU-qHT1IPXRI7zBU&mobility=1&employeeGender=all" target="_blank" class="btn btn-hero">Make an Appointment</a>
     </div>
   </section>
 
@@ -146,18 +64,6 @@ const ratings = ref([
     </div>
   </section>
 
-  <section class="cta-section">
-    <div class="container">
-      <h2>Crafted Cuts, Modern Style.</h2>
-      <p>
-        At Omar's, we blend timeless tradition with modern precision. Our master
-        barbers are dedicated to crafting the perfect look for you in a
-        relaxed, professional atmosphere. Ready for your best cut yet?
-      </p>
-      <a href="#" class="btn btn-cta">Schedule an Appointment</a>
-    </div>
-  </section>
-
   <section
     class="services-section"
     :style="{ backgroundImage: `url(${selectedService ? selectedService.image : ''})` }"
@@ -177,6 +83,18 @@ const ratings = ref([
           <RatesCard v-if="selectedService" :item="selectedService" />
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>Crafted Cuts, Modern Style.</h2>
+      <p>
+        At Omar's, we blend timeless tradition with modern precision. Our master
+        barbers are dedicated to crafting the perfect look for you in a
+        relaxed, professional atmosphere. Ready for your best cut yet?
+      </p>
+      <a href="https://www.mytime.com/express_checkout/23287/21106?fbclid=IwAR1k6qxD1716w-cibtf70tgYNM7OHdYBb9seRo7sYkMzU-qHT1IPXRI7zBU&mobility=1&employeeGender=all" target="_blank" class="btn btn-cta">Schedule an Appointment</a>
     </div>
   </section>
 
@@ -269,6 +187,7 @@ const ratings = ref([
 <style scoped>
 section {
     overflow: hidden;
+    max-width: 100%;
 }
 /* --- Hero Section Styles --- */
 .hero-section {
