@@ -1,9 +1,22 @@
 <script setup>
-import { RouterLink } from 'vue-router';
+import { computed } from 'vue';
+import { RouterLink, useRoute } from 'vue-router';
+
+// 1. Get the current route information
+const route = useRoute();
+
+// 2. Create a computed property that returns the correct CSS variables
+const themeVars = computed(() => {
+  if (route.path === '/salon') {
+    return { '--footer-primary-color': 'var(--color-primary-salon)' };
+  }
+  // Default for all other pages
+  return { '--footer-primary-color': 'var(--color-primary)' };
+});
 </script>
 
 <template>
-  <footer class="site-footer">
+  <footer class="site-footer" :style="themeVars">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-column">
@@ -58,8 +71,9 @@ import { RouterLink } from 'vue-router';
   margin-bottom: 3rem;
 }
 
+/* 4. Use the new local variable throughout the styles */
 .footer-column h4 {
-  color: var(--color-primary);
+  color: var(--footer-primary-color);
   font-family: var(--font-family-headings);
   margin-bottom: 1.5rem;
   font-size: 1.25rem;
@@ -86,7 +100,7 @@ import { RouterLink } from 'vue-router';
 }
 
 .footer-links a:hover {
-  color: var(--color-primary);
+  color: var(--footer-primary-color);
 }
 
 .footer-bottom {
@@ -110,7 +124,7 @@ import { RouterLink } from 'vue-router';
 }
 
 .social-icons a:hover {
-  color: var(--color-primary);
+  color: var(--footer-primary-color);
 }
 
 @media (max-width: 768px) {

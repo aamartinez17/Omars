@@ -1,13 +1,39 @@
+<script setup>
+import { computed } from 'vue';
+import { RouterLink, useRoute } from 'vue-router';
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+
+// Get the current route information
+const route = useRoute();
+
+// Computed property for the theme colors
+const themeVars = computed(() => {
+  if (route.path === '/salon') {
+    return { '--nav-primary-color': 'var(--color-primary-salon)' };
+  }
+  return { '--nav-primary-color': 'var(--color-primary)' };
+});
+
+// 1. NEW: Computed property for the logo source
+const logoSrc = computed(() => {
+  if (route.path === '/salon') {
+    return '/logo/Omars-HSBS-Outline_PinkLogo.png'; // Path to the salon logo
+  }
+  return '/logo/Omars-HSBS-Outline_GoldLogo.png'; // Path to the default logo
+});
+</script>
+
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" :style="themeVars">
     <div class="container">
-        <router-link class="navbar-brand" to="/">
-            <img 
-                src="/logo/Omars-HSBS-Outline_GoldLogo.png" 
-                alt="Omar's Hair Salon & Barbershop Logo" 
-                class="navbar-logo"
-            >
-        </router-link>
+      <router-link class="navbar-brand" to="/">
+        <!-- 2. Bind the 'src' attribute to the new computed property -->
+        <img 
+          :src="logoSrc" 
+          alt="Omar's Hair Salon & Barbershop Logo" 
+          class="navbar-logo"
+        >
+      </router-link>
 
       <button 
         class="navbar-toggler" 
@@ -38,22 +64,17 @@
         </ul>
 
         <div class="d-flex align-items-center">
-            <div class="social-icons">
-                <a href="https://www.facebook.com/Omarshairsalonbarbershop" target="_blank" class="text-light mx-2"><i class="bi bi-facebook"></i></a>
-                <a href="https://www.instagram.com/Omars.barbershop/" target="_blank" class="text-light mx-2"><i class="bi bi-instagram"></i></a>
-                <a href="https://www.tiktok.com/@omars.barbershop" target="_blank" class="text-light mx-2"><i class="bi bi-tiktok"></i></a>
-            </div>
-            <a href="https://www.mytime.com/express_checkout/23287/21106?fbclid=IwAR1k6qxD1716w-cibtf70tgYNM7OHdYBb9seRo7sYkMzU-qHT1IPXRI7zBU&mobility=1&employeeGender=all" target="_blank" class="btn btn-primary ms-lg-3">Make an Appointment</a>
+          <div class="social-icons">
+            <a href="https://www.facebook.com/Omarshairsalonbarbershop" target="_blank" class="text-light mx-2"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/Omars.barbershop/" target="_blank" class="text-light mx-2"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.tiktok.com/@omars.barbershop" target="_blank" class="text-light mx-2"><i class="bi bi-tiktok"></i></a>
+          </div>
+          <a href="https://www.mytime.com/express_checkout/23287/21106" target="_blank" class="btn btn-primary ms-lg-3">Make an Appointment</a>
         </div>
       </div>
     </div>
   </nav>
 </template>
-
-<script setup>
-import { RouterLink } from 'vue-router';
-import "bootstrap/dist/js/bootstrap.bundle.min.js";
-</script>
 
 <style scoped>
 .navbar-logo {
@@ -69,7 +90,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 .navbar-brand {
   font-family: var(--font-family-headings);
   font-weight: 700;
-  color: var(--color-primary);
+  color: var(--nav-primary-color);
 }
 
 .nav-link {
@@ -77,25 +98,25 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
   transition: color 0.3s;
   margin: 0 0.5rem;
   padding-bottom: 6px; 
-  position: relative; /* This is the positioning "anchor" */
-  display: inline-block; /* <-- The main fix is here! */
+  position: relative;
+  display: inline-block;
 }
 
 .nav-link.router-link-exact-active::after {
   content: '';
   position: absolute;
   bottom: 0;
-  left: 0; /* Align to the start of the inline-block */
-  width: 100%; /* Make it the full width of the link */
+  left: 0;
+  width: 100%;
   height: 2px;
-  background-color: var(--color-primary);
+  background-color: var(--nav-primary-color);
   transform: scaleX(1);
   transition: transform 0.3s ease-in-out;
 }
 
 .nav-link:hover,
 .router-link-exact-active {
-  color: var(--color-primary);
+  color: var(--nav-primary-color);
 }
 
 .social-icons a {
@@ -104,12 +125,12 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 }
 
 .social-icons a:hover {
-  color: var(--color-primary) !important;
+  color: var(--nav-primary-color) !important;
 }
 
 .btn-primary {
-  background-color: var(--color-primary);
-  border-color: var(--color-primary);
+  background-color: var(--nav-primary-color);
+  border-color: var(--nav-primary-color);
   color: var(--color-text-dark);
   font-weight: 600;
   white-space: nowrap; 
