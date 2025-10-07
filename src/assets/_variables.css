@@ -2,7 +2,7 @@
 :root {
   /* COLOR PALETTE */
   --color-primary: #f0cb5c; /* Solid Gold for highlights, buttons */
-   --color-primary-salon:#f05ef0;
+   --color-primary-salon:#df5cf0;
   --color-primary-transparent: rgba(240, 203, 92, 0.75); /* Your original transparent gold */
   --color-background: #000000; /* Black */
   --color-background-secondary: #1a1a1a; /* Dark Gray for cards, sections */

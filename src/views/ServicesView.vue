@@ -59,7 +59,7 @@ const stylists = ref(stylistsData);
         <div class="container">
             <h2>Ready for Your Transformation?</h2>
             <p>You've seen our work and met our team. Now it's time to experience the difference for yourself. Schedule your appointment today and discover your perfect style.</p>
-            <a href="#" class="btn btn-cta">Book an Appointment Now</a>
+            <a href="https://www.mytime.com/express_checkout/23287/21106?fbclid=IwAR1k6qxD1716w-cibtf70tgYNM7OHdYBb9seRo7sYkMzU-qHT1IPXRI7zBU&mobility=1&employeeGender=all" class="btn btn-cta">Book an Appointment Now</a>
         </div>
     </section>
   </div>

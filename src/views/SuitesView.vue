@@ -16,6 +16,7 @@ const takenSuites = computed(() => allSuites.value.filter(s => !s.isAvailable));
 <template>
   <div>
     <section class="availability-section">
+        <img src="/images/SuiteBanner.png" alt="">
       <div class="container">
         <h2 class="section-title">Suite Availability</h2>
         <div class="availability-grid">
@@ -63,12 +64,53 @@ const takenSuites = computed(() => allSuites.value.filter(s => !s.isAvailable));
 .section-title { text-align: center; color: var(--color-primary); font-size: 2.5rem; margin-bottom: 3rem; }
 
 /* Availability Section */
-.availability-section { background-color: var(--color-background); padding: 5rem 1rem; }
-.availability-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 800px; margin: 0 auto; }
+.availability-section { 
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative; /* Required for the overlay */
+    color: var(--color-text-light);
+}
+
+.availability-section img {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: 1; /* Image is on the bottom layer */
+}
+
+.availability-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 2; /* Overlay sits on top of the image */
+}
+
+/* --- THIS IS THE FIX --- */
+/* Target the container with the text and bring it to the top layer */
+.availability-section .container {
+    position: relative;
+    z-index: 3;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.availability-grid { 
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 2rem;
+    max-width: 800px; 
+    margin: 0 auto;
+    /* z-index: 0; has been removed from here */
+}
 .location-column h3 { color: var(--color-primary); border-bottom: 1px solid #444; padding-bottom: 1rem; margin-bottom: 1rem; }
 .location-column ul { list-style: none; padding: 0; }
 .location-column li { padding: 0.75rem; border-radius: 4px; margin-bottom: 0.5rem; font-weight: 600; }
-.location-column li.available { background-color: rgba(239, 179, 0, 0.2); color: var(--color-primary); }
+.location-column li.available { background-color: rgba(239, 179, 0, 0.8); color: var(--color-primary); }
 .location-column li.taken { background-color: #222; color: #777; text-decoration: line-through; }
 
 /* Available Suites Section */

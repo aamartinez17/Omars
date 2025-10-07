@@ -32,7 +32,7 @@ const isHovered = ref(false);
       <div class="work-gallery">
         <img v-for="image in stylist.workImages" :key="image" :src="image" alt="Portfolio work">
       </div>
-      <a href="#" class="btn btn-book-now">Book Now</a>
+      <a :href="stylist.bookingURL" target="_blank" class="btn btn-book-now">Book Now</a>
     </div>
   </div>
 </template>

@@ -1,4 +1,7 @@
 <script setup>
+import { ref } from 'vue';
+import { partnersData } from '@/assets/data/partners.js';
+const partners = ref(partnersData);
 // This page is static for now, so no complex script is needed.
 </script>
 
@@ -42,10 +45,28 @@
         <div class="container">
             <h2>Become Part of the Family</h2>
             <p>Experience the difference that passion and precision make. Book your appointment and find your new look today.</p>
-            <a href="#" class="btn btn-cta">Schedule an Appointment</a>
+            <a href="https://www.mytime.com/express_checkout/23287/21106?fbclid=IwAR1k6qxD1716w-cibtf70tgYNM7OHdYBb9seRo7sYkMzU-qHT1IPXRI7zBU&mobility=1&employeeGender=all" class="btn btn-cta">Schedule an Appointment</a>
         </div>
     </section>
 
+
+    <section class="partners-section">
+      <div class="container">
+        <h2>Community Partners</h2>
+        <div class="partners-grid">
+          <a
+            v-for="partner in partners"
+            :key="partner.name"
+            :href="partner.websiteUrl"
+            target="_blank"
+            class="partner-link"
+            :title="partner.name"
+          >
+            <img :src="partner.logo" :alt="partner.name + ' Logo'">
+          </a>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -53,7 +74,7 @@
 /* --- Hero Section --- */
 .about-hero {
   position: relative;
-  height: 60vh;
+  height: 70vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -126,6 +147,9 @@
 /* --- Mission Section --- */
 .about-mission {
     background-color: var(--color-background-secondary);
+    /* background-image: url("/images/OmarTrim.jpg"); */
+    background-size: cover;
+    background-repeat: no-repeat;
     padding: 5rem 1rem;
     text-align: center;
 }
@@ -142,6 +166,51 @@
     margin: 0 auto;
     font-size: 1.1rem;
 }
+
+
+
+/* Styles for Partners Section */
+.partners-section {
+  background-color: var(--color-background-secondary);
+  padding: 0 1rem 5rem 1rem; /* Less top padding to flow from mission section */
+  text-align: center;
+  padding: 5rem 1rem;
+}
+
+.partners-section h2 {
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
+}
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2rem;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.partner-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  padding: 1rem;
+  background-color: var(--color-background);
+  border-radius: var(--border-radius);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.partner-link:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.partner-link img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  /* Invert colors on dark background if logos are black */
+  filter: brightness(0) invert(1);
+}
+
 
 /* --- CTA Section --- */
 .about-cta {

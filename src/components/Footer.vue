@@ -27,6 +27,7 @@ const themeVars = computed(() => {
         <div class="footer-column">
           <h4>Quick Links</h4>
           <ul class="footer-links">
+            <li><router-link to="/">Home</router-link></li>
             <li><router-link to="/services">Services</router-link></li>
             <li><router-link to="/suites">Suites</router-link></li>
             <li><router-link to="/salon">Salon</router-link></li>

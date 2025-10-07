@@ -8,7 +8,7 @@ export const suitesData = [
     details: {
       size: '150 sq. ft.',
       features: ['Styling Chair Included', 'Large Window', 'Private Sink'],
-      images: ['/images/suite-1-a.jpg', '/images/suite-1-b.jpg', '/images/suite-1-c.jpg']
+      images: ['/images/Suite101.png', '/images/Suite101.png', '/images/Suite101.png']
     },
     tenant: null
   },
@@ -20,7 +20,7 @@ export const suitesData = [
     details: null,
     tenant: {
       name: 'Luxe Lashes by Liz',
-      logo: '/images/tenant-logo-1.png',
+      logo: '/logo/Omars-Logo-Crest.png',
       socialUrl: '#',
       specialty: 'Eyelash Extensions & Brow Lamination'
     }
@@ -33,7 +33,7 @@ export const suitesData = [
     details: {
       size: '175 sq. ft.',
       features: ['Double-Wide Suite', 'Corner Views', 'Retail Shelving'],
-      images: ['/images/suite-2-a.jpg', '/images/suite-2-b.jpg', '/images/suite-2-c.jpg']
+      images: ['/images/Suite102.png', '/images/Suite102.png', '/images/Suite102.png']
     },
     tenant: null
   },
@@ -45,7 +45,7 @@ export const suitesData = [
     details: null,
     tenant: {
       name: 'The Nail Bar',
-      logo: '/images/tenant-logo-2.png',
+      logo: '/logo/Omars-Logo-Crest.png',
       socialUrl: '#',
       specialty: 'Manicures & Pedicures'
     }

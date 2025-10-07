@@ -50,7 +50,7 @@ const ratings = ref([
             Harrisonburg, VA 22801
           </p>
           <p class="phone-number">(540) 282-2575</p>
-          <a href="#" class="btn btn-location">Book Harrisonburg</a>
+          <a href="https://www.mytime.com/express_checkout/23287/21106?fbclid=IwAR1k6qxD1716w-cibtf70tgYNM7OHdYBb9seRo7sYkMzU-qHT1IPXRI7zBU&mobility=1&employeeGender=all" class="btn btn-location">Book Harrisonburg</a>
         </div>
         <div class="location-card coming-soon">
           <h3>Coming Soon</h3>
@@ -102,18 +102,18 @@ const ratings = ref([
   <section class="collage-section">
     <div class="collage-grid">
       <div class="collage-item item-1">
-        <img src="/images/service-haircut.png" alt="">
+        <img src="/images/OmarTrim.jpg" alt="">
       </div>
       <div class="collage-item item-2">
-        <img src="/images/service-shave.png" alt="">
+        <img src="/images/ChildCuts.jpg" alt="">
         
       </div>
       <div class="collage-item item-3">
-        <img src="/images/service-threading.png" alt="">
+        <img src="/images/Childhaircut2.jpg" alt="">
         
       </div>
       <div class="collage-item item-4">
-        <img src="/images/service-facial.png" alt="">
+        <img src="/images/Beard-1024x683.jpg" alt="">
         
       </div>
     </div>
