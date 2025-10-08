@@ -24,7 +24,7 @@ const salonServices = computed(() =>
         <div class="about-text" data-aos="fade-right">
           <h2>Beyond the Cut</h2>
           <p>Our salon is a space dedicated to the art of beauty and relaxation. We believe in a personalized approach, where our expert stylists consult with you to create a look that's not just a style, but a statement. From rejuvenating treatments to precision techniques, every detail is curated for your comfort and satisfaction.</p>
-          <a href="#" class="btn btn-cta">Book Your Escape</a>
+          <a href="https://www.mytime.com/express_checkout/23287/21106?fbclid=IwAR1k6qxD1716w-cibtf70tgYNM7OHdYBb9seRo7sYkMzU-qHT1IPXRI7zBU&mobility=1&employeeGender=all" class="btn btn-cta">Book Your Escape</a>
         </div>
         <div class="about-image" data-aos="fade-left">
           <img src="/images/service-facial.png" alt="Stylist consulting with a client">
@@ -143,14 +143,25 @@ const salonServices = computed(() =>
 
 .about-image {
   border-radius: var(--border-radius);
-  /* overflow: hidden; */
+  overflow: hidden;
   height: 400px;
+  position: relative;
 }
 
 .about-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  z-index: 1;
+}
+
+.about-image::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  z-index: 2;
 }
 
 /* --- Services Section --- */

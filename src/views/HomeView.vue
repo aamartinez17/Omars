@@ -53,7 +53,7 @@ const ratings = ref([
           <p class="phone-number">(540) 282-2575</p>
           <a href="https://www.mytime.com/express_checkout/23287/21106?fbclid=IwAR1k6qxD1716w-cibtf70tgYNM7OHdYBb9seRo7sYkMzU-qHT1IPXRI7zBU&mobility=1&employeeGender=all" target="_blank" class="btn btn-location">Book Harrisonburg</a>
         </div>
-        <div class="location-card coming-soon" data-aos="fade-left">
+        <div class="location-card" data-aos="fade-left">
           <h3>Coming Soon</h3>
           <p>
             Our next location will be announced shortly.<br />
