@@ -10,9 +10,8 @@ npm install
 npm run dev
 npm install vue-router
 npm install bootstrap
-npm install sass
-npm install bootstrap-scss
 npm install swiper
+npm install aos
 ```
 
 

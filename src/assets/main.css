@@ -5,9 +5,15 @@ body {
   background-color: var(--color-background);
   color: var(--color-text-light);
   font-family: var(--font-family-body);
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-family-headings);
   color: var(--color-primary);
+}
+
+section {
+    overflow: hidden;
+    width: 100%;
 }

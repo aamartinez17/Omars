@@ -16,11 +16,11 @@ const takenSuites = computed(() => allSuites.value.filter(s => !s.isAvailable));
 <template>
   <div>
     <section class="availability-section">
-        <img src="/images/SuiteBanner.png" alt="">
+      <img src="/images/SuiteBanner.png" alt="Modern and clean salon suite interior">
       <div class="container">
-        <h2 class="section-title">Suite Availability</h2>
+        <h2 class="section-title" data-aos="fade-down">Suite Availability</h2>
         <div class="availability-grid">
-          <div class="location-column">
+          <div class="location-column" data-aos="fade-right">
             <h3>Harrisonburg</h3>
             <ul>
               <li v-for="suite in harrisonburgSuites" :key="suite.id" :class="suite.isAvailable ? 'available' : 'taken'">
@@ -28,7 +28,7 @@ const takenSuites = computed(() => allSuites.value.filter(s => !s.isAvailable));
               </li>
             </ul>
           </div>
-          <div class="location-column">
+          <div class="location-column" data-aos="fade-left">
             <h3>Coming Soon</h3>
             <ul>
               <li v-for="suite in futureLocationSuites" :key="suite.id" class="available">
@@ -42,18 +42,30 @@ const takenSuites = computed(() => allSuites.value.filter(s => !s.isAvailable));
 
     <section class="available-suites-section">
       <div class="container">
-        <h2 class="section-title">Available For Lease</h2>
+        <h2 class="section-title" data-aos="fade-up">Available For Lease</h2>
         <div class="suites-grid">
-          <SuiteCard v-for="suite in availableSuites" :key="suite.id" :suite="suite" />
+          <SuiteCard
+            v-for="(suite, index) in availableSuites"
+            :key="suite.id"
+            :suite="suite"
+            data-aos="zoom-in-up"
+            :data-aos-delay="index * 100"
+          />
         </div>
       </div>
     </section>
 
     <section class="tenants-section">
       <div class="container">
-        <h2 class="section-title">Our Community</h2>
+        <h2 class="section-title" data-aos="fade-up">Our Community</h2>
         <div class="tenants-grid">
-          <TenantCard v-for="suite in takenSuites" :key="suite.id" :tenant="suite.tenant" />
+          <TenantCard
+            v-for="(suite, index) in takenSuites"
+            :key="suite.id"
+            :tenant="suite.tenant"
+            data-aos="zoom-in-up"
+            :data-aos-delay="index * 100"
+          />
         </div>
       </div>
     </section>

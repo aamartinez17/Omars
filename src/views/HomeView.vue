@@ -34,25 +34,26 @@ const ratings = ref([
         src="/logo/Omars-HSBS-Outline_GoldLogo.png"
         alt="Omar's Hair Salon & Barbershop Logo"
         class="hero-logo"
+        data-aos="fade-down"
       />
-      <a href="https://www.mytime.com/express_checkout/23287/21106?fbclid=IwAR1k6qxD1716w-cibtf70tgYNM7OHdYBb9seRo7sYkMzU-qHT1IPXRI7zBU&mobility=1&employeeGender=all" target="_blank" class="btn btn-hero">Make an Appointment</a>
+      <a href="https://www.mytime.com/express_checkout/23287/21106?fbclid=IwAR1k6qxD1716w-cibtf70tgYNM7OHdYBb9seRo7sYkMzU-qHT1IPXRI7zBU&mobility=1&employeeGender=all" target="_blank" class="btn btn-hero" data-aos="fade-up" data-aos-delay="200">Make an Appointment</a>
     </div>
   </section>
 
   <section class="locations-section">
     <div class="container">
-      <h2 class="section-title">Our Locations</h2>
+      <h2 class="section-title" data-aos="fade-up">Our Locations</h2>
       <div class="locations-grid">
-        <div class="location-card">
+        <div class="location-card" data-aos="fade-right">
           <h3>Harrisonburg, VA</h3>
           <p>
             130 University Blvd<br />
             Harrisonburg, VA 22801
           </p>
           <p class="phone-number">(540) 282-2575</p>
-          <a href="https://www.mytime.com/express_checkout/23287/21106?fbclid=IwAR1k6qxD1716w-cibtf70tgYNM7OHdYBb9seRo7sYkMzU-qHT1IPXRI7zBU&mobility=1&employeeGender=all" class="btn btn-location">Book Harrisonburg</a>
+          <a href="https://www.mytime.com/express_checkout/23287/21106?fbclid=IwAR1k6qxD1716w-cibtf70tgYNM7OHdYBb9seRo7sYkMzU-qHT1IPXRI7zBU&mobility=1&employeeGender=all" target="_blank" class="btn btn-location">Book Harrisonburg</a>
         </div>
-        <div class="location-card coming-soon">
+        <div class="location-card coming-soon" data-aos="fade-left">
           <h3>Coming Soon</h3>
           <p>
             Our next location will be announced shortly.<br />
@@ -66,6 +67,7 @@ const ratings = ref([
 
   <section
     class="services-section"
+    data-aos="fade-in"
     :style="{ backgroundImage: `url(${selectedService ? selectedService.image : ''})` }"
   >
     <div class="container">
@@ -88,51 +90,49 @@ const ratings = ref([
 
   <section class="cta-section">
     <div class="container">
-      <h2>Crafted Cuts, Modern Style.</h2>
-      <p>
+      <h2 data-aos="fade-down">Crafted Cuts, Modern Style.</h2>
+      <p data-aos="fade-up">
         At Omar's, we blend timeless tradition with modern precision. Our master
         barbers are dedicated to crafting the perfect look for you in a
         relaxed, professional atmosphere. Ready for your best cut yet?
       </p>
-      <a href="https://www.mytime.com/express_checkout/23287/21106?fbclid=IwAR1k6qxD1716w-cibtf70tgYNM7OHdYBb9seRo7sYkMzU-qHT1IPXRI7zBU&mobility=1&employeeGender=all" target="_blank" class="btn btn-cta">Schedule an Appointment</a>
+      <a href="https://www.mytime.com/express_checkout/23287/21106?fbclid=IwAR1k6qxD1716w-cibtf70tgYNM7OHdYBb9seRo7sYkMzU-qHT1IPXRI7zBU&mobility=1&employeeGender=all" target="_blank" class="btn btn-cta" data-aos="fade-up" data-aos-delay="200">Schedule an Appointment</a>
     </div>
   </section>
 
 
   <section class="collage-section">
     <div class="collage-grid">
-      <div class="collage-item item-1">
-        <img src="/images/OmarTrim.jpg" alt="">
+      <div class="collage-item item-1" data-aos="zoom-in-right">
+        <img src="/images/OmarTrim.jpg" alt="Barber trimming a client's hair">
       </div>
-      <div class="collage-item item-2">
-        <img src="/images/ChildCuts.jpg" alt="">
-        
+      <div class="collage-item item-2" data-aos="zoom-in-left" data-aos-delay="200">
+        <img src="/images/ChildCuts.jpg" alt="Young boy getting a haircut">
       </div>
-      <div class="collage-item item-3">
-        <img src="/images/Childhaircut2.jpg" alt="">
-        
+      <div class="collage-item item-3" data-aos="zoom-in-left" data-aos-delay="400">
+        <img src="/images/Childhaircut2.jpg" alt="Another young boy getting a haircut">
       </div>
-      <div class="collage-item item-4">
-        <img src="/images/Beard-1024x683.jpg" alt="">
-        
+      <div class="collage-item item-4" data-aos="zoom-in-left" data-aos-delay="600">
+        <img src="/images/Beard-1024x683.jpg" alt="Close-up of a well-groomed beard">
       </div>
     </div>
   </section>
 
 
   <section class="ratings-section">
-    <div class="container">
+    <div class="container" data-aos="fade-up">
       <h2 class="section-title">What Our Clients Say</h2>
-      <RatingsCarousel :ratings="ratings" /> </div>
+      <RatingsCarousel :ratings="ratings" />
+    </div>
   </section>
 
 
 
     <section class="contact-section">
     <div class="container">
-      <h2 class="section-title">Get In Touch</h2>
+      <h2 class="section-title" data-aos="fade-up">Get In Touch</h2>
       <div class="contact-grid">
-        <div class="contact-info">
+        <div class="contact-info" data-aos="fade-right">
           <div class="location-details-grid">
             <div class="location-detail-card">
               <h3>Harrisonburg, VA</h3>
@@ -164,7 +164,7 @@ const ratings = ref([
             <li><span>Sunday</span> <span>Closed</span></li>
           </ul>
         </div>
-        <form class="contact-form">
+        <form class="contact-form" data-aos="fade-left">
           <div class="form-group">
             <label for="name">Your Name</label>
             <input type="text" id="name" name="name" required>
@@ -187,12 +187,13 @@ const ratings = ref([
 <style scoped>
 section {
     overflow: hidden;
-    max-width: 100%;
+    width: 100%;
 }
+
 /* --- Hero Section Styles --- */
 .hero-section {
   position: relative;
-  height: 90vh;
+  height: 70vh;
   width: 100%;
   display: flex;
   align-items: center;
@@ -204,8 +205,8 @@ section {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  min-width: 130%;
-  min-height: 130%;
+  min-width: 100%;
+  min-height: 100%;
   width: auto;
   height: auto;
   z-index: 1;
@@ -363,7 +364,7 @@ section {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 /* This overlay now covers the entire section */
@@ -430,8 +431,6 @@ section {
   align-items: center;
   justify-content: center;
   padding: 2rem;
-
-  /* --- THE FIX IS HERE --- */
   width: 100vw;
   left: 50%;
   transform: translateX(-50%);

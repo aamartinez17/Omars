@@ -23,16 +23,16 @@ const stylists = ref(stylistsData);
   <div>
     <section class="services-section" :style="{ backgroundImage: `url(${selectedService ? selectedService.image : ''})` }">
       <div class="container">
-        <h2 class="section-title">Our Services</h2>
+        <h2 class="section-title" data-aos="fade-down">Our Services</h2>
         <div class="services-layout">
-          <ul class="service-menu">
+          <ul class="service-menu" data-aos="fade-right">
             <li v-for="service in services" :key="service.name">
               <button @click="selectService(service)" :class="{ active: selectedService.name === service.name }">
                 {{ service.name }}
               </button>
             </li>
           </ul>
-          <div class="service-display">
+          <div class="service-display" data-aos="fade-left">
             <RatesCard v-if="selectedService" :item="selectedService" />
           </div>
         </div>
@@ -40,7 +40,7 @@ const stylists = ref(stylistsData);
     </section>
 
     <section class="pre-team-cta">
-      <div class="container">
+      <div class="container" data-aos="fade-up">
         <h2>The Skill Behind the Style</h2>
         <p>Our team of dedicated barbers and stylists are masters of their craft, ready to bring your vision to life. Get to know the artists who make it all happen.</p>
       </div>
@@ -48,18 +48,24 @@ const stylists = ref(stylistsData);
 
     <section class="team-section">
       <div class="container">
-        <h2 class="section-title">Meet Our Team</h2>
+        <h2 class="section-title" data-aos="fade-up">Meet Our Team</h2>
         <div class="team-grid">
-          <StylistCard v-for="stylist in stylists" :key="stylist.name" :stylist="stylist" />
+          <StylistCard 
+            v-for="(stylist, index) in stylists" 
+            :key="stylist.name" 
+            :stylist="stylist" 
+            data-aos="zoom-in-up"
+            :data-aos-delay="index * 100"
+          />
         </div>
       </div>
     </section>
 
     <section class="post-team-cta">
         <div class="container">
-            <h2>Ready for Your Transformation?</h2>
-            <p>You've seen our work and met our team. Now it's time to experience the difference for yourself. Schedule your appointment today and discover your perfect style.</p>
-            <a href="https://www.mytime.com/express_checkout/23287/21106?fbclid=IwAR1k6qxD1716w-cibtf70tgYNM7OHdYBb9seRo7sYkMzU-qHT1IPXRI7zBU&mobility=1&employeeGender=all" class="btn btn-cta">Book an Appointment Now</a>
+            <h2 data-aos="fade-down">Ready for Your Transformation?</h2>
+            <p data-aos="fade-up">You've seen our work and met our team. Now it's time to experience the difference for yourself. Schedule your appointment today and discover your perfect style.</p>
+            <a href="https://www.mytime.com/express_checkout/23287/21106?fbclid=IwAR1k6qxD1716w-cibtf70tgYNM7OHdYBb9seRo7sYkMzU-qHT1IPXRI7zBU&mobility=1&employeeGender=all" class="btn btn-cta" data-aos="fade-up" data-aos-delay="200">Book an Appointment Now</a>
         </div>
     </section>
   </div>
@@ -76,8 +82,7 @@ const stylists = ref(stylistsData);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  overflow: hidden;
+  justify-content: flex-start;
 }
 .services-section::before {
   content: '';
@@ -110,7 +115,7 @@ const stylists = ref(stylistsData);
   background-color: rgba(0, 0, 0, 0.4);
   border: 1px solid #444;
   border-radius: var(--border-radius);
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 .service-menu button { display: block; width: 100%; text-align: left; padding: 1.25rem 1.5rem; background: transparent; border: none; border-bottom: 1px solid #444; color: var(--color-text-light); font-family: var(--font-family-body); font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; }
 .service-menu li:last-child button { border-bottom: none; }

@@ -13,30 +13,36 @@ const salonServices = computed(() =>
   <div>
     <section class="salon-hero">
       <div class="hero-content">
-        <h1>Your Sanctuary for Style</h1>
-        <p>Experience modern elegance and personalized care in a relaxing, upscale environment.</p>
+        <h1 data-aos="fade-down">Your Sanctuary for Style</h1>
+        <p data-aos="fade-up" data-aos-delay="200">Experience modern elegance and personalized care in a relaxing, upscale environment.</p>
       </div>
-      
+      <!-- <img src="/images/salon-hero-bg.jpg" alt="Bright and modern hair salon interior"> -->
     </section>
 
     <section class="salon-about">
       <div class="container about-grid">
-        <div class="about-text">
+        <div class="about-text" data-aos="fade-right">
           <h2>Beyond the Cut</h2>
           <p>Our salon is a space dedicated to the art of beauty and relaxation. We believe in a personalized approach, where our expert stylists consult with you to create a look that's not just a style, but a statement. From rejuvenating treatments to precision techniques, every detail is curated for your comfort and satisfaction.</p>
           <a href="#" class="btn btn-cta">Book Your Escape</a>
         </div>
-        <div class="about-image">
-          <img src="/images/service-facial.png" alt="">
+        <div class="about-image" data-aos="fade-left">
+          <img src="/images/service-facial.png" alt="Stylist consulting with a client">
         </div>
       </div>
     </section>
 
     <section class="salon-services">
       <div class="container">
-        <h2 class="section-title">Salon Offerings</h2>
+        <h2 class="section-title" data-aos="fade-up">Salon Offerings</h2>
         <div class="services-grid">
-          <div v-for="service in salonServices" :key="service.name" class="service-category-card">
+          <div
+            v-for="(service, index) in salonServices"
+            :key="service.name"
+            class="service-category-card"
+            data-aos="zoom-in-up"
+            :data-aos-delay="index * 100"
+          >
             <h3>{{ service.name }}</h3>
             <ul>
               <li v-for="subService in service.subServices" :key="subService.name">
@@ -88,7 +94,7 @@ const salonServices = computed(() =>
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.8);
   z-index: 2;
 }
 
@@ -137,7 +143,7 @@ const salonServices = computed(() =>
 
 .about-image {
   border-radius: var(--border-radius);
-  overflow: hidden;
+  /* overflow: hidden; */
   height: 400px;
 }
 

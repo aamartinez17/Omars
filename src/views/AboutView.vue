@@ -9,18 +9,18 @@ const partners = ref(partnersData);
   <div>
     <section class="about-hero">
       <div class="hero-content">
-        <h1>More Than a Haircut. <br>It's a Tradition.</h1>
-        <p>Discover the story, passion, and craftsmanship behind Omar's.</p>
+        <h1 data-aos="fade-down">More Than a Haircut. <br>It's a Tradition.</h1>
+        <p data-aos="fade-up" data-aos-delay="200">Discover the story, passion, and craftsmanship behind Omar's.</p>
       </div>
-      <img src="/images/Slider2.jpg" alt="">
+      <img src="/images/Slider2.jpg" alt="Interior of the barbershop">
     </section>
 
     <section class="about-story">
       <div class="container about-grid">
-        <div class="story-image">
-          <img src="/logo/Omars-Logo-Crest.png" alt="">
+        <div class="story-image" data-aos="fade-right">
+          <img src="/logo/Omars-Logo-Crest.png" alt="Omar's Barbershop Crest Logo">
         </div>
-        <div class="story-text">
+        <div class="story-text" data-aos="fade-left">
           <h2>Our Story</h2>
           <p>
             Founded in the heart of Harrisonburg, Omar's Hair Salon & Barbershop was born from a passion for the timeless art of grooming. Omar envisioned a place where traditional craftsmanship could meet contemporary style—a community hub where clients aren't just customers, but family.
@@ -33,7 +33,7 @@ const partners = ref(partnersData);
     </section>
 
     <section class="about-mission">
-        <div class="container">
+        <div class="container" data-aos="fade-up">
             <h2>Our Mission</h2>
             <p>
                 To provide an unparalleled grooming experience that blends artistry with hospitality. We are dedicated to delivering top-tier services in a welcoming environment, ensuring every client leaves looking sharp, feeling confident, and counting the days until their next visit.
@@ -41,19 +41,10 @@ const partners = ref(partnersData);
         </div>
     </section>
 
-    <section class="about-cta">
-        <div class="container">
-            <h2>Become Part of the Family</h2>
-            <p>Experience the difference that passion and precision make. Book your appointment and find your new look today.</p>
-            <a href="https://www.mytime.com/express_checkout/23287/21106?fbclid=IwAR1k6qxD1716w-cibtf70tgYNM7OHdYBb9seRo7sYkMzU-qHT1IPXRI7zBU&mobility=1&employeeGender=all" class="btn btn-cta">Schedule an Appointment</a>
-        </div>
-    </section>
-
-
     <section class="partners-section">
       <div class="container">
-        <h2>Community Partners</h2>
-        <div class="partners-grid">
+        <h2 data-aos="fade-up">Community Partners</h2>
+        <div class="partners-grid" data-aos="fade-up" data-aos-delay="200">
           <a
             v-for="partner in partners"
             :key="partner.name"
@@ -66,6 +57,14 @@ const partners = ref(partnersData);
           </a>
         </div>
       </div>
+    </section>
+
+    <section class="about-cta">
+        <div class="container" data-aos="zoom-in">
+            <h2>Become Part of the Family</h2>
+            <p>Experience the difference that passion and precision make. Book your appointment and find your new look today.</p>
+            <a href="https://www.mytime.com/express_checkout/23287/21106?fbclid=IwAR1k6qxD1716w-cibtf70tgYNM7OHdYBb9seRo7sYkMzU-qHT1IPXRI7zBU&mobility=1&employeeGender=all" class="btn btn-cta">Schedule an Appointment</a>
+        </div>
     </section>
   </div>
 </template>
@@ -124,7 +123,7 @@ const partners = ref(partnersData);
 }
 .story-image {
   border-radius: var(--border-radius);
-  overflow: hidden;
+  /* overflow: hidden; */
   height: 450px;
 }
 .story-image img {

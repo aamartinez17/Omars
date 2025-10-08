@@ -1,10 +1,14 @@
 <script setup>
-import { computed } from 'vue';
+import { computed, ref, onMounted, onUnmounted } from 'vue';
 import { RouterLink, useRoute } from 'vue-router';
+import { Collapse } from 'bootstrap';
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
-// Get the current route information
+
 const route = useRoute();
+const navRef = ref(null);
+const navbarNavRef = ref(null);
+let bsCollapse = null
 
 // Computed property for the theme colors
 const themeVars = computed(() => {
@@ -14,20 +18,51 @@ const themeVars = computed(() => {
   return { '--nav-primary-color': 'var(--color-primary)' };
 });
 
-// 1. NEW: Computed property for the logo source
+// Computed property for the logo source
 const logoSrc = computed(() => {
   if (route.path === '/salon') {
     return '/logo/Omars-HSBS-Outline_PinkLogo.png'; // Path to the salon logo
   }
   return '/logo/Omars-HSBS-Outline_GoldLogo.png'; // Path to the default logo
 });
+
+// A function to close the navbar if it's open
+const closeNavbar = () => {
+  // First, check if the element exists and is visible
+  if (navbarNavRef.value && navbarNavRef.value.classList.contains('show')) {
+    // Get the instance Bootstrap already created for our element
+    const bsCollapse = Collapse.getInstance(navbarNavRef.value);
+    if (bsCollapse) {
+      bsCollapse.hide();
+    }
+  }
+};
+
+// A function to check if a click was outside the navbar
+const handleClickOutside = (event) => {
+  if (navRef.value && !navRef.value.contains(event.target)) {
+    closeNavbar();
+  }
+};
+
+// 4. Use lifecycle hooks to add/remove the event listener
+onMounted(() => {
+  if (navbarNavRef.value) {
+    bsCollapse = new Collapse(navbarNavRef.value, { toggle: false });
+  }
+  document.addEventListener('click', handleClickOutside);
+});
+
+onUnmounted(() => {
+  document.removeEventListener('click', handleClickOutside);
+});
+
 </script>
 
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" :style="themeVars">
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" :style="themeVars" ref="navRef">
     <div class="container">
       <router-link class="navbar-brand" to="/">
-        <!-- 2. Bind the 'src' attribute to the new computed property -->
         <img 
           :src="logoSrc" 
           alt="Omar's Hair Salon & Barbershop Logo" 
@@ -47,23 +82,23 @@ const logoSrc = computed(() => {
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="collapse navbar-collapse" id="navbarNav" ref="navbarNavRef">
         <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
             <li class="nav-item">
-            <router-link class="nav-link" to="/">Home</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link class="nav-link" to="/services">Services</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link class="nav-link" to="/suites">Suites</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link class="nav-link" to="/salon">Salon</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link class="nav-link" to="/about">About Us</router-link>
-          </li>
+              <router-link class="nav-link" to="/" @click="closeNavbar">Home</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link class="nav-link" to="/services" @click="closeNavbar">Services</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link class="nav-link" to="/suites" @click="closeNavbar">Suites</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link class="nav-link" to="/salon" @click="closeNavbar">Salon</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link class="nav-link" to="/about" @click="closeNavbar">About Us</router-link>
+            </li>
         </ul>
 
         <div class="d-flex align-items-center">

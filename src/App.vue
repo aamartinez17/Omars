@@ -12,11 +12,9 @@ import Footer from './components/Footer.vue';
   </main>
 
   <Footer />
-
-  </template>
+</template>
 
 <style>
-/* Add some top padding to the body to prevent content from hiding under the fixed navbar */
 body {
   padding-top: 70px; 
 }
